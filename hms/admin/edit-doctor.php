@@ -13,7 +13,7 @@ $docaddress=$_POST['clinicaddress'];
 $docfees=$_POST['docfees'];
 $doccontactno=$_POST['doccontact'];
 $docemail=$_POST['docemail'];
-$sql=mysql_query("Update doctors set specilization='$docspecialization',doctorName='$docname',address='$docaddress',docFees='$docfees',contactno='$doccontactno',docEmail='$docemail' where id='$did'");
+$sql=mysqli_query($bd,"Update doctors set specilization='$docspecialization',doctorName='$docname',address='$docaddress',docFees='$docfees',contactno='$doccontactno',docEmail='$docemail' where id='$did'");
 if($sql)
 {
 echo "<script>alert('Doctor Details updated Successfully');</script>";
@@ -88,8 +88,8 @@ echo "<script>alert('Doctor Details updated Successfully');</script>";
 													<h5 class="panel-title">Add Doctor</h5>
 												</div>
 												<div class="panel-body">
-									<?php $sql=mysql_query("select * from doctors where id='$did'");
-while($data=mysql_fetch_array($sql))
+									<?php $sql=mysqli_query($bd,"select * from doctors where id='$did'");
+while($data=mysqli_fetch_array($sql))
 {
 ?>
 													<form role="form" name="adddoc" method="post" onSubmit="return valid();">
@@ -100,8 +100,8 @@ while($data=mysql_fetch_array($sql))
 							<select name="Doctorspecialization" class="form-control" required="required">
 					<option value="<?php echo htmlentities($data['specilization']);?>">
 					<?php echo htmlentities($data['specilization']);?></option>
-<?php $ret=mysql_query("select * from doctorspecilization");
-while($row=mysql_fetch_array($ret))
+<?php $ret=mysqli_query($bd,"select * from doctorspecilization");
+while($row=mysqli_fetch_array($ret))
 {
 ?>
 																<option value="<?php echo htmlentities($row['specilization']);?>">

@@ -3,8 +3,8 @@ session_start();
 include("include/config.php");
 if(isset($_POST['submit']))
 {
-$ret=mysql_query("SELECT * FROM doctors WHERE docEmail='".$_POST['username']."' and password='".md5($_POST['password'])."'");
-$num=mysql_fetch_array($ret);
+$ret=mysqli_query($bd,"SELECT * FROM doctors WHERE docEmail='".$_POST['username']."' and password='".md5($_POST['password'])."'");
+$num=mysqli_fetch_array($ret);
 if($num>0)
 {
 $extra="dashboard.php";
@@ -12,7 +12,7 @@ $_SESSION['dlogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
-$log=mysql_query("insert into doctorslog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')");
+$log=mysqli_query($bd,"insert into doctorslog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')");
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
@@ -24,7 +24,7 @@ $host  = $_SERVER['HTTP_HOST'];
 $_SESSION['dlogin']=$_POST['username'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
-mysql_query("insert into doctorslog(username,userip,status) values('".$_SESSION['dlogin']."','$uip','$status')");
+mysqli_query($bd,"insert into doctorslog(username,userip,status) values('".$_SESSION['dlogin']."','$uip','$status')");
 $_SESSION['errmsg']="Invalid username or password";
 $extra="index.php";
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');

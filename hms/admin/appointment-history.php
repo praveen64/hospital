@@ -83,9 +83,9 @@ check_login();
 										</thead>
 										<tbody>
 <?php
-$sql=mysql_query("select doctors.doctorName as docname,users.fullName as pname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId join users on users.id=appointment.userId ");
+$sql=mysqli_query($bd,"select doctors.doctorName as docname,users.fullName as pname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId join users on users.id=appointment.userId ");
 $cnt=1;
-while($row=mysql_fetch_array($sql))
+while($row=mysqli_fetch_array($sql))
 {
 ?>
 

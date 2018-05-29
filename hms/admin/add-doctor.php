@@ -7,19 +7,21 @@ check_login();
 
 if(isset($_POST['submit']))
 {
-	$docspecialization=$_POST['Doctorspecialization'];
+$docspecialization=$_POST['Doctorspecialization'];
 $docname=$_POST['docname'];
 $docaddress=$_POST['clinicaddress'];
 $docfees=$_POST['docfees'];
 $doccontactno=$_POST['doccontact'];
 $docemail=$_POST['docemail'];
 $password=md5($_POST['npass']);
-$sql=mysql_query("insert into doctors(specilization,doctorName,address,docFees,contactno,docEmail,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$password')");
+$sql=mysqli_query($bd,"insert into doctors(specilization,doctorName,address,docFees,contactno,docEmail,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$password')");
 if($sql)
 {
 echo "<script>alert('Doctor info added Successfully');</script>";
 echo "<script type='text/javascript'> document.location = 'location:Manage-doctors.php'; </script>";
 
+}else{
+	echo $sql;
 }
 }
 ?>
@@ -108,8 +110,8 @@ return true;
 															</label>
 							<select name="Doctorspecialization" class="form-control" required="required">
 																<option value="">Select Specialization</option>
-<?php $ret=mysql_query("select * from doctorspecilization");
-while($row=mysql_fetch_array($ret))
+<?php $ret=mysqli_query($bd,"select * from doctorspecilization");
+while($row=mysqli_fetch_array($ret))
 {
 ?>
 																<option value="<?php echo htmlentities($row['specilization']);?>">

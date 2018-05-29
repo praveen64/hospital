@@ -8,11 +8,11 @@ date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 if(isset($_POST['submit']))
 {
-$sql=mysql_query("SELECT password FROM  admin where password='".$_POST['cpass']."' && username='".$_SESSION['login']."'");
-$num=mysql_fetch_array($sql);
+$sql=mysqli_query($bd,"SELECT password FROM  admin where password='".$_POST['cpass']."' && username='".$_SESSION['login']."'");
+$num=mysqli_fetch_array($sql);
 if($num>0)
 {
- $con=mysql_query("update admin set password='".$_POST['npass']."', updationDate='$currentTime' where username='".$_SESSION['login']."'");
+ $con=mysqli_query("update admin set password='".$_POST['npass']."', updationDate='$currentTime' where username='".$_SESSION['login']."'");
 $_SESSION['msg1']="Password Changed Successfully !!";
 }
 else

@@ -17,7 +17,7 @@ $time=$_POST['apptime'];
 $userstatus=1;
 $docstatus=1;
 
-	$query=mysql_query("insert into appointment(doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
+	$query=mysqli_query($bd,"insert into appointment(doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
 	if($query)
 	{
 		echo "<script>alert('Your appointment successfully booked');</script>";
@@ -130,8 +130,8 @@ function getfee(val) {
 															</label>
 							<select name="Doctorspecialization" class="form-control" onChange="getdoctor(this.value);" required="required">
 																<option value="">Select Specialization</option>
-<?php $ret=mysql_query("select * from doctorspecilization");
-while($row=mysql_fetch_array($ret))
+<?php $ret=mysqli_query($bd,"select * from doctorspecilization");
+while($row=mysqli_fetch_array($ret))
 {
 ?>
 																<option value="<?php echo htmlentities($row['specilization']);?>">

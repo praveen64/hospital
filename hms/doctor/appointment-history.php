@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 if(isset($_GET['cancel']))
 		  {
-		          mysql_query("update appointment set doctorStatus='0' where id = '".$_GET['id']."'");
+		          mysqli_query($bd,"update appointment set doctorStatus='0' where id = '".$_GET['id']."'");
                   $_SESSION['msg']="Appointment canceled !!";
 		  }
 ?>
@@ -87,9 +87,9 @@ if(isset($_GET['cancel']))
 										</thead>
 										<tbody>
 <?php
-$sql=mysql_query("select users.fullName as fname,appointment.*  from appointment join users on users.id=appointment.userId where appointment.doctorId='".$_SESSION['id']."'");
+$sql=mysqli_query($bd,"select users.fullName as fname,appointment.*  from appointment join users on users.id=appointment.userId where appointment.doctorId='".$_SESSION['id']."'");
 $cnt=1;
-while($row=mysql_fetch_array($sql))
+while($row=mysqli_fetch_array($sql))
 {
 ?>
 

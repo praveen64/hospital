@@ -1,14 +1,15 @@
 
 <?php $mysql_hostname = "localhost";
 $mysql_user = "root";
-$mysql_password = "";
-$mysql_database = "hms";
-$bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");
-mysql_select_db($mysql_database, $bd) or die("Could not select database");
+$mysql_password = "1234";
+$mysql_database = "hospital";
+$bd = mysqli_connect($mysql_hostname, $mysql_user, $mysql_password,$mysql_database) or die("Could not connect database");
+//mysql_select_db($mysql_database, $bd) or die("Could not select database");
+
 if($_GET['action']=='doctorid'){
 	$docinfo=$_POST['docinfo'];
-	$query= mysql_query("select * from doctors where doctorName=$docinfo");
-	$array=mysql_fetch_array($query);
+	$query= mysqli_query($bd,"select * from doctors where doctorName=$docinfo");
+	$array=mysqli_fetch_array($query);
 	echo $array['docFees'];
 	
 	}

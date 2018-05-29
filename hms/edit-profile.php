@@ -11,7 +11,7 @@ $address=$_POST['address'];
 $city=$_POST['city'];
 $gender=$_POST['gender'];
 
-$sql=mysql_query("Update users set fullName='$fname',address='$address',city='$city',gender='$gender' where email='".$_SESSION['login']."'");
+$sql=mysqli_query($bd,"Update users set fullName='$fname',address='$address',city='$city',gender='$gender' where email='".$_SESSION['login']."'");
 if($sql)
 {
 echo "<script>alert('Your Profile updated Successfully');</script>";
@@ -85,8 +85,8 @@ echo "<script>alert('Your Profile updated Successfully');</script>";
 													<h5 class="panel-title">Edit Profile</h5>
 												</div>
 												<div class="panel-body">
-									<?php $sql=mysql_query("select * from users where email='".$_SESSION['login']."'");
-while($data=mysql_fetch_array($sql))
+									<?php $sql=mysqli_query($bd,"select * from users where email='".$_SESSION['login']."'");
+while($data=mysqli_fetch_array($sql))
 {
 ?>
 													<form role="form" name="edit" method="post">

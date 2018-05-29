@@ -71,8 +71,8 @@ check_login();
 											
 											<p class="links cl-effect-1">
 												<a href="manage-users.php">
-												<?php $result = mysql_query("SELECT * FROM users ");
-$num_rows = mysql_num_rows($result);
+												<?php $result = mysqli_query($bd,"SELECT * FROM users ");
+$num_rows = mysqli_num_rows($result);
 {
 ?>
 											Total Patients :<?php echo htmlentities($num_rows);  } ?>		
@@ -89,8 +89,8 @@ $num_rows = mysql_num_rows($result);
 										
 											<p class="cl-effect-1">
 												<a href="manage-doctors.php">
-												<?php $result1 = mysql_query("SELECT * FROM doctors ");
-$num_rows1 = mysql_num_rows($result1);
+												<?php $result1 = mysqli_query($bd,"SELECT * FROM doctors ");
+$num_rows1 = mysqli_num_rows($result1);
 {
 ?>
 											Total Doctors :<?php echo htmlentities($num_rows1);  } ?>		
@@ -109,8 +109,8 @@ $num_rows1 = mysql_num_rows($result1);
 											<p class="links cl-effect-1">
 												<a href="book-appointment.php">
 													<a href="appointment-history.php">
-												<?php $sql= mysql_query("SELECT * FROM appointment");
-$num_rows2 = mysql_num_rows($sql);
+												<?php $sql= mysqli_query($bd,"SELECT * FROM appointment");
+$num_rows2 = mysqli_num_rows($sql);
 {
 ?>
 											Total Appointments :<?php echo htmlentities($num_rows2);  } ?>	

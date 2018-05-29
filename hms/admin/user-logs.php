@@ -82,9 +82,9 @@ check_login();
 										</thead>
 										<tbody>
 <?php
-$sql=mysql_query("select * from userlog ");
+$sql=mysqli_query($bd,"select * from userlog ");
 $cnt=1;
-while($row=mysql_fetch_array($sql))
+while($row=mysqli_fetch_array($sql))
 {
 ?>
 

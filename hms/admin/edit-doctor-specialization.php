@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Kolkata');// change according timezone
 $currentTime = date( 'd-m-Y h:i:s A', time () );
 if(isset($_POST['submit']))
 {
-$sql=mysql_query("update  doctorSpecilization set specilization='".$_POST['doctorspecilization']."', updationDate='$currentTime'where id='$id'");
+$sql=mysqli_query($bd,"update  doctorSpecilization set specilization='".$_POST['doctorspecilization']."', updationDate='$currentTime'where id='$id'");
 $_SESSION['msg']="Doctor Specialization updated successfully !!";
 }
 
@@ -89,8 +89,8 @@ $_SESSION['msg']="Doctor Specialization updated successfully !!";
 	<?php 
 
 $id=intval($_GET['id']);
-	$sql=mysql_query("select * from doctorSpecilization where id='$id'");
-while($row=mysql_fetch_array($sql))
+	$sql=mysqli_query($bd,"select * from doctorSpecilization where id='$id'");
+while($row=mysqli_fetch_array($sql))
 {														
 	?>		<input type="text" name="doctorspecilization" class="form-control" value="<?php echo $row['specilization'];?>" >
 	<?php } ?>

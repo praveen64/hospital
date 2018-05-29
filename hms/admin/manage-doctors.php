@@ -8,7 +8,7 @@ check_login();
 
 if(isset($_GET['del']))
 		  {
-		          mysql_query("delete from doctors where id = '".$_GET['id']."'");
+		          mysqli_query($bd,"delete from doctors where id = '".$_GET['id']."'");
                   $_SESSION['msg']="data deleted !!";
 		  }
 ?>
@@ -86,9 +86,9 @@ if(isset($_GET['del']))
 										</thead>
 										<tbody>
 <?php
-$sql=mysql_query("select * from doctors");
+$sql=mysqli_query($bd,"select * from doctors");
 $cnt=1;
-while($row=mysql_fetch_array($sql))
+while($row=mysqli_fetch_array($sql))
 {
 ?>
 

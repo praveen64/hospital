@@ -4,8 +4,8 @@ error_reporting(0);
 include("include/config.php");
 if(isset($_POST['submit']))
 {
-$ret=mysql_query("SELECT * FROM admin WHERE username='".$_POST['username']."' and password='".$_POST['password']."'");
-$num=mysql_fetch_array($ret);
+$ret=mysqli_query($bd,"SELECT * FROM admin WHERE username='".$_POST['username']."' and password='".$_POST['password']."'");
+$num=mysqli_fetch_array($ret);
 if($num>0)
 {
 $extra="dashboard.php";//
