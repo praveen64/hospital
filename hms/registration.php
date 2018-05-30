@@ -1,6 +1,6 @@
 <?php
 include_once('include/config.php');
-if ($_SERVER["REQUEST_METHOD"] == "POST")
+if(isset($_POST['submit']))
 {
 $fname=$_POST['full_name'];
 $address=$_POST['address'];
@@ -8,11 +8,11 @@ $city=$_POST['city'];
 $gender=$_POST['gender'];
 $email=$_POST['email'];
 $password=md5($_POST['password']);
-$sql=mysql_query("insert into users(fullname,address,city,gender,email,password) values('$fname','$address','$city','$gender','$email','$password')");
-if($sql)
+$query=mysql_query("insert into users(fullname,address,city,gender,email,password) values('$fname','$address','$city','$gender','$email','$password')");
+if($query)
 {
 	echo "<script>alert('Successfully Registered. You can login now');</script>";
-	header('location:user-login.php');
+	//header('location:user-login.php');
 }
 }
 ?>
@@ -54,7 +54,7 @@ if($sql)
 				</div>
 				<!-- start: REGISTER BOX -->
 				<div class="box-register">
-					<form name="registration" id="registration"  method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
+					<form name="registration" id="registration"  method="post">
 						<fieldset>
 							<legend>
 								Sign Up
@@ -119,11 +119,10 @@ if($sql)
 									<a href="user-login.php">
 										Log-in
 									</a>
-								</p><input type="submit" value="Submit" name="submit" /></p>
-								<!--
+								</p>
 								<button type="submit" class="btn btn-primary pull-right" id="submit" name="submit">
 									Submit <i class="fa fa-arrow-circle-right"></i>
-								</button> -->
+								</button>
 							</div>
 						</fieldset>
 					</form>
