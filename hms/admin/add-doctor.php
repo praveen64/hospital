@@ -18,7 +18,7 @@ $sql=mysql_query("insert into doctors(specilization,doctorName,address,docFees,c
 if($sql)
 {
 echo "<script>alert('Doctor info added Successfully');</script>";
-echo "<script type='text/javascript'> document.location = 'location:Manage-doctors.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'Manage-doctors.php'; </script>";
 
 }
 }
