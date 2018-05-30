@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>HMS | Contact us</title>
+		<title>LSP HMS | Contact us</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
 		<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
 	</head>
@@ -14,7 +14,7 @@
 				<div class="wrap">
 				<!--start-logo-->
 				<div class="logo">
-					<a href="index.html" style="font-size: 30px;">Hospital Management system</a>
+					<a href="index.html" style="font-size: 30px;">Laxmi Sri Physiotherapy Hospital</a>
 				</div>
 				<!--end-logo-->
 				<!--start-top-nav-->
@@ -37,13 +37,14 @@
 				<div class="col span_1_of_3">
 
       			<div class="company_address">
-				     	<h2>Hospital Address  :</h2>
-						    	<p>500 Lorem Ipsum Dolor Sit,</p>
-						   		<p>22-56-2-9 Sit Amet, Lorem,</p>
-						   		<p>India</p>
-				   		<p>Phone:(00) 222 666 444</p>
+						 <h2>Hospital Address  :</h2>
+						    	<p>Laxmi Sri Physioptherapy Hospital,</p>
+						        <p>Nayeem Nagar; 1-3-255,</p>
+						   		<p>NH 16,Korutla,505326</p>
+						   		<p>Telanaga,India</p>
+				   		<p>Phone:(+91) 9440047280</p>
 				   		<p>Fax: (000) 000 00 00 0</p>
-				 	 	<p>Email: <span>codeprojectsorg@gmail.com</span></p>
+				 	 	<p>Email: <span>drgangadharpattipaka@gmail.com</span></p>
 
 				   </div>
 				</div>

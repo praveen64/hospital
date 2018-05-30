@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Hospital Management System</title>
+		<title>LAXMI SRI PHYSIOTHERAPY HMS</title>
 		<link href="css/style.css" rel="stylesheet" type="text/css"  media="all" />
 		<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/responsiveslides.css">
@@ -28,13 +28,13 @@
 				<div class="wrap">
 				<!--start-logo-->
 				<div class="logo">
-					<a href="index.html" style="font-size: 30px;">Hospital Management system</a>
+					<a href="index.php" style="font-size: 30px;">Laxmi Sri Physiotherapy Hospital Management system</a>
 				</div>
 				<!--end-logo-->
 				<!--start-top-nav-->
 				<div class="top-nav">
 					<ul>
-						<li class="active"><a href="index.html">Home</a></li>
+						<li class="active"><a href="index.php">Home</a></li>
 
 						<li><a href="contact.php">contact</a></li>
 					</ul>
@@ -49,9 +49,9 @@
 					<div class="image-slider">
 						<!-- Slideshow 1 -->
 					    <ul class="rslides" id="slider1">
-					      <li><img src="images/slider-image1.jpg" alt=""></li>
-					      <li><img src="images/slider-image2.jpg" alt=""></li>
-					      <li><img src="images/slider-image1.jpg" alt=""></li>
+					      <li><img src="images/slider-image4.jpg" alt=""></li>
+					      <li><img src="images/slider-image3.jpg" alt=""></li>
+					      <li><img src="images/slider-image4.jpg" alt=""></li>
 					    </ul>
 						 <!-- Slideshow 2 -->
 					</div>
@@ -119,7 +119,7 @@
 		   	 <div class="wrap">
 		   	<div class="footer-left">
 		   			<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li><a href="contact.php">contact</a></li>
 					</ul>
 		   	</div>

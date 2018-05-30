@@ -22,7 +22,7 @@
 						<ul class="nav navbar-right">
 							<!-- start: MESSAGES DROPDOWN -->
 								<li  style="padding-top:2% ">
-								<h2>Hospital Management System</h2>
+								<h2>Laxmi Sri Physiotherapy Hospital Management System</h2>
 							</li>
 						
 						
