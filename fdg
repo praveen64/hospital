@@ -1,0 +1,123 @@
+[1mdiff --git a/hms/admin/include/config.php b/hms/admin/include/config.php[m
+[1mindex 16e6ac4..c740860 100644[m
+[1m--- a/hms/admin/include/config.php[m
+[1m+++ b/hms/admin/include/config.php[m
+[36m@@ -1,8 +1,8 @@[m
+ <?php[m
+ $mysql_hostname = "localhost";[m
+ $mysql_user = "root";[m
+[31m-$mysql_password = "";[m
+[31m-$mysql_database = "hms";[m
+[32m+[m[32m$mysql_password = "1234";[m
+[32m+[m[32m$mysql_database = "hospital";[m
+ $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");[m
+ mysql_select_db($mysql_database, $bd) or die("Could not select database");[m
+ [m
+[1mdiff --git a/hms/book-appointment.php b/hms/book-appointment.php[m
+[1mindex 3a32898..62fdd01 100644[m
+[1m--- a/hms/book-appointment.php[m
+[1m+++ b/hms/book-appointment.php[m
+[36m@@ -21,6 +21,8 @@[m [m$docstatus=1;[m
+ 	if($query)[m
+ 	{[m
+ 		echo "<script>alert('Your appointment successfully booked');</script>";[m
+[32m+[m	[32m}else{[m
+[32m+[m		[32mecho "<script>alert('appoinment failed...!');</script>";[m
+ 	}[m
+ [m
+ }[m
+[1mdiff --git a/hms/doctor/include/config.php b/hms/doctor/include/config.php[m
+[1mindex 16e6ac4..c740860 100644[m
+[1m--- a/hms/doctor/include/config.php[m
+[1m+++ b/hms/doctor/include/config.php[m
+[36m@@ -1,8 +1,8 @@[m
+ <?php[m
+ $mysql_hostname = "localhost";[m
+ $mysql_user = "root";[m
+[31m-$mysql_password = "";[m
+[31m-$mysql_database = "hms";[m
+[32m+[m[32m$mysql_password = "1234";[m
+[32m+[m[32m$mysql_database = "hospital";[m
+ $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");[m
+ mysql_select_db($mysql_database, $bd) or die("Could not select database");[m
+ [m
+[1mdiff --git a/hms/getfee.php b/hms/getfee.php[m
+[1mindex e9142fc..25df592 100644[m
+[1m--- a/hms/getfee.php[m
+[1m+++ b/hms/getfee.php[m
+[36m@@ -1,8 +1,8 @@[m
+ [m
+ <?php $mysql_hostname = "localhost";[m
+ $mysql_user = "root";[m
+[31m-$mysql_password = "";[m
+[31m-$mysql_database = "hms";[m
+[32m+[m[32m$mysql_password = "1234";[m
+[32m+[m[32m$mysql_database = "hospital";[m
+ $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");[m
+ mysql_select_db($mysql_database, $bd) or die("Could not select database");[m
+ if($_GET['action']=='doctorid'){[m
+[1mdiff --git a/hms/include/config.php b/hms/include/config.php[m
+[1mindex 16e6ac4..c740860 100644[m
+[1m--- a/hms/include/config.php[m
+[1m+++ b/hms/include/config.php[m
+[36m@@ -1,8 +1,8 @@[m
+ <?php[m
+ $mysql_hostname = "localhost";[m
+ $mysql_user = "root";[m
+[31m-$mysql_password = "";[m
+[31m-$mysql_database = "hms";[m
+[32m+[m[32m$mysql_password = "1234";[m
+[32m+[m[32m$mysql_database = "hospital";[m
+ $bd = mysql_connect($mysql_hostname, $mysql_user, $mysql_password) or die("Could not connect database");[m
+ mysql_select_db($mysql_database, $bd) or die("Could not select database");[m
+ [m
+[1mdiff --git a/hms/registration.php b/hms/registration.php[m
+[1mindex d894bd5..9ffead6 100644[m
+[1m--- a/hms/registration.php[m
+[1m+++ b/hms/registration.php[m
+[36m@@ -1,6 +1,6 @@[m
+ <?php[m
+ include_once('include/config.php');[m
+[31m-if(isset($_POST['submit']))[m
+[32m+[m[32mif ($_SERVER["REQUEST_METHOD"] == "POST")[m
+ {[m
+ $fname=$_POST['full_name'];[m
+ $address=$_POST['address'];[m
+[36m@@ -8,11 +8,11 @@[m [m$city=$_POST['city'];[m
+ $gender=$_POST['gender'];[m
+ $email=$_POST['email'];[m
+ $password=md5($_POST['password']);[m
+[31m-$query=mysql_query("insert into users(fullname,address,city,gender,email,password) values('$fname','$address','$city','$gender','$email','$password')");[m
+[31m-if($query)[m
+[32m+[m[32m$sql=mysql_query("insert into users(fullname,address,city,gender,email,password) values('$fname','$address','$city','$gender','$email','$password')");[m
+[32m+[m[32mif($sql)[m
+ {[m
+ 	echo "<script>alert('Successfully Registered. You can login now');</script>";[m
+[31m-	//header('location:user-login.php');[m
+[32m+[m	[32mheader('location:user-login.php');[m
+ }[m
+ }[m
+ ?>[m
+[36m@@ -54,7 +54,7 @@[m [mif($query)[m
+ 				</div>[m
+ 				<!-- start: REGISTER BOX -->[m
+ 				<div class="box-register">[m
+[31m-					<form name="registration" id="registration"  method="post">[m
+[32m+[m					[32m<form name="registration" id="registration"  method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">[m
+ 						<fieldset>[m
+ 							<legend>[m
+ 								Sign Up[m
+[36m@@ -119,10 +119,11 @@[m [mif($query)[m
+ 									<a href="user-login.php">[m
+ 										Log-in[m
+ 									</a>[m
+[31m-								</p>[m
+[32m+[m								[32m</p><input type="submit" value="Submit" name="submit" /></p>[m
+[32m+[m								[32m<!--[m
+ 								<button type="submit" class="btn btn-primary pull-right" id="submit" name="submit">[m
+ 									Submit <i class="fa fa-arrow-circle-right"></i>[m
+[31m-								</button>[m
+[32m+[m								[32m</button> -->[m
+ 							</div>[m
+ 						</fieldset>[m
+ 					</form>[m

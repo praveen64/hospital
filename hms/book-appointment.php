@@ -21,6 +21,8 @@ $docstatus=1;
 	if($query)
 	{
 		echo "<script>alert('Your appointment successfully booked');</script>";
+	}else{
+		echo "<script>alert('appoinment failed...!');</script>";
 	}
 
 }
