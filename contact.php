@@ -14,13 +14,13 @@
 				<div class="wrap">
 				<!--start-logo-->
 				<div class="logo">
-					<a href="index.html" style="font-size: 30px;">Laxmi Sri Physiotherapy Hospital</a>
+					<a href="index.php" style="font-size: 30px;">Laxmi Sri Physiotherapy Hospital</a>
 				</div>
 				<!--end-logo-->
 				<!--start-top-nav-->
 				<div class="top-nav">
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 
 						<li class="active"><a href="contact.php">contact</a></li>
 					</ul>
@@ -84,7 +84,7 @@
 		   	 <div class="wrap">
 		   	<div class="footer-left">
 		   			<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 
 						<li><a href="contact.php">contact</a></li>
 					</ul>
