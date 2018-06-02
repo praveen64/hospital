@@ -28,7 +28,7 @@
 						
 							<li class="dropdown current-user">
 								<a href class="dropdown-toggle" data-toggle="dropdown">
-									<img src="assets/images/avatar-1.jpg" alt="Peter"> <span class="username">
+									<img src="assets/images/profiles/<?php echo $_SESSION['login'].".jpg"; ?>" alt="Peter"> <span class="username">
 
 
 
@@ -41,6 +41,11 @@
 									<li>
 										<a href="change-password.php">
 											Change Password
+										</a>
+									</li>
+									<li>
+										<a href="upload-profile.php">
+											Upload Picture 
 										</a>
 									</li>
 									<li>

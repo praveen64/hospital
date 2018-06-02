@@ -69,6 +69,11 @@
 											<span class="title"> Manage Patients </span>
 										</a>
 									</li>
+									<li>
+										<a href="pay-bill.php">
+											<span class="title"> Pay Bill </span>
+										</a>
+									</li>
 									
 								</ul>
 								</li>	
