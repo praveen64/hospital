@@ -70,8 +70,8 @@
 										</a>
 									</li>
 									<li>
-										<a href="pay-bill.php">
-											<span class="title"> Pay Bill </span>
+										<a href="services.php">
+											<span class="title"> Services </span>
 										</a>
 									</li>
 									
