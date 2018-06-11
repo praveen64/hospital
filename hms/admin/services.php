@@ -44,7 +44,29 @@ echo "<script type='text/javascript'> document.location = 'services.php'; </scri
 		<link rel="stylesheet" href="assets/css/styles.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
+		<script>
+function showPatient(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","get-patient.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
 	</head>
 	<body>
 		<div id="app">		
@@ -117,7 +139,7 @@ while($row=mysql_fetch_array($ret))
 															<label for="PatientID">
 																 PatientID
 															</label>
-							<select name="PatientID" class="form-control" required="required">
+							<select name="PatientID" class="form-control" required="required" onchange="showPatient(this.value)">
 																<option value="">Select PatientID</option>
 <?php $ret=mysql_query("select * from patientregistration");
 while($row=mysql_fetch_array($ret))
@@ -132,7 +154,9 @@ while($row=mysql_fetch_array($ret))
 																
 															</select>
 														</div>
-	
+<div id="txtHint"><b>Patient info will be listed here...</b></div>
+										
+	<br>
 <div class="form-group">
 									<label for="ServiceCharges">
 																 Service Charges
