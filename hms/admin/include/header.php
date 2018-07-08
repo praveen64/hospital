@@ -28,7 +28,7 @@
 						
 							<li class="dropdown current-user">
 								<a href class="dropdown-toggle" data-toggle="dropdown">
-									<img src="assets/images/profiles/<?php echo $_SESSION['login'].".jpg"; ?>" alt="Peter"> <span class="username">
+									<img src="assets/images/profiles/<?php echo $_SESSION['login'].".jpg"; ?>" alt="img"> <span class="username">
 
 
 
